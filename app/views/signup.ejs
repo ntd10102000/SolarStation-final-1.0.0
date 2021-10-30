@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../tem/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="../tem/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../tem/dist/css/adminlte.min.css">
+    <style>
+        body {
+        background-image: url("../bg.jpg");
+        background-repeat: no-repeat;
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: white
+    }
+    </style>
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo" style="width:100%;">
+            <a href="/"><b style="font-weight:bold;font-size:30px;color:#B8860B">SOLAR POWER STATIONS
+                    MANAGEMENT </b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Đăng ký để sử dụng dịch vụ</p>
+
+                <form action="/signup" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="username" placeholder="Username*"
+                            required="required">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p style="color: brown;">
+                        <% for(var i=0; i<errors.length; i++) {%>
+                            <% if(errors[i].param=="username" ){%>
+                                <%= errors[i].msg %>
+                                    <%}%>
+                                        <%}%>
+                                            <%= message %>
+
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Email*" required="required">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p style="color: brown;">
+                        <% for(var i=0; i<errors.length; i++) {%>
+                            <% if(errors[i].param=="email" ){%>
+                                <%= errors[i].msg %>
+                                    <%}%>
+                                        <%}%>
+                                            <%= message1 %>
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" placeholder="Password*"
+                            required="required">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: brown;">
+                        <% for(var i=0; i<errors.length; i++) {%>
+                            <% if(errors[i].param=="password" ){%>
+                                <%= errors[i].msg %>
+                                    <%}%>
+                                        <%}%>
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="password" name="re_password" class="form-control" placeholder="Re-Password*"
+                            required="required">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: brown;">
+                        <%= message2 %>
+                    </p>
+
+                    <div class="input-group mb-3">
+                        <select class="form-control" name="provinceId" id="" required>
+                            <option value="">Chọn khu vực quản lý*</option>
+                            <% provinces.rows.forEach(function(e){ %>
+                                <option class="form-control" value="<%= e.id %>">
+                                    <%= e.provinceName %>
+                                </option>
+                                <% }); %>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+
+    <!-- jQuery -->
+    <script src="../tem/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../tem/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../tem/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>
